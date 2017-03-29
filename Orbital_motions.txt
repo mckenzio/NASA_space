@@ -12,10 +12,27 @@ GM = 3.986*10^14;    % gravitational constant
 % Calculate the radius of orbit for a Eath satellite in a geosynchronous orbit, where the Earth's rotational% period is 86,164.1 seconds.
 P = 86164.1; %seconds
 radius = (P^2 *GM/ (4*pi^2))^(1/3);
-% An artificial Earth satellite is in an elliptical orbit which brings it to an altitude of 250 km at perigee and out to an altitude of 500 km at apogee. Calculate the velocity of the satellie at both perigee and apogee. Radius_Earth = 6378.14; %kmAltitude_Perigee = 250;Altitude_Apogee = 500;  %km Radius_Perigee = (Radius_Earth + Altitude_Perigee);Radius_Apogee = (Radius_Earth + Altitude_Apogee);
-Velocity_Perigee = sqrt(2*GM*Radius_Apogee/(Radius_Perigee*(Radius_Apogee+Radius_Perigee)));Velocity_Perigee = sqrt(2*GM*Radius_Perigee/(Radius_Apogee*(Radius_Apogee+Radius_Perigee)));
+% An artificial Earth satellite is in an elliptical orbit which brings it to an altitude of 250 km at perigee and out to an altitude of 500 km at apogee. Calculate the velocity of the satellie at both perigee and apogee. Radius_Earth = 6378.14; %kmAltitude_Perigee = 250;
+
+Altitude_Apogee = 500;  %km 
+Radius_Perigee = (Radius_Earth + Altitude_Perigee);
+Radius_Apogee = (Radius_Earth + Altitude_Apogee);
+Velocity_Perigee = sqrt(2*GM*Radius_Apogee/(Radius_Perigee*(Radius_Apogee+Radius_Perigee)));
+
+Velocity_Perigee = sqrt(2*GM*Radius_Perigee/(Radius_Apogee*(Radius_Apogee+Radius_Perigee)));
 % Calculate the eccentricity of the orbitfor the satellie in problem 4.5.
 eccentricity = Radius_Perigee * Velocity_Perigee^2/(GM -1);
 %Calculate the satellie's altitude at both perigee and apogee.
-Radius_Perigee = semimajor_axis * (1 - eccentricity);Radius_Apogee = semimajor_axis * (1 + eccentricity);
-Altitude_Perigee = Radius_Perigee - Radius_Earth;Altitude_Apogee = Radius_Perigee - Radius_Earth;
+Radius_Perigee = semimajor_axis * (1 - eccentricity);
+Radius_Apogee = semimajor_axis * (1 + eccentricity);
+Altitude_Perigee = Radius_Perigee - Radius_Earth;
+Altitude_Apogee = Radius_Perigee - Radius_Earth;  
+
+% A satellite is launched into Earth orbit where its launch vehicle burns out at an altitude of 250 km.% At burnout the satellite's velocity is 7900 m/s with the zenith angle equal to 89 degrees. Calculate% the satellite's altitude at perigee and apogee.altitude = 250; %kmRadius_Object_1 = Radius_Earth + altitude;
+
+Velocity_Object_1 = 7900 %m/szenith_angle = 89;  %degrees %
+
+Radius_Perigee = ( -C +- sqrt(C^2 - 4 *(1 - C) * -sin(zenith_angle)^2*zenith_angle))/(2*(1-C));flight_path_angle = 0; %degreessemimajor_axis = 1/(2/r - velocity^2/GM);azimuth_angle = 0;
+%(B) degreesgeocentric_latitude = 0; degreesdeclination = 0;
+periapsis = 0;true_anomaly = 0;% POSITION IN AN ELLIPTICAL ORBITmean_anomaly = 0;
+%M - M_0 = n(t - t_0);mean_anomaly_0 = 0;  %mean_anomaly at time_0mean_motion = 0;eccentric_anomaly = 0;  %(E) for elliptical orbitscos(eccentric_anomaly) = (eccentricity+ cos(true_anomaly))/(1 + eccentricity*cos(true_anomaly))flight_path_angle = arctan(eccentricity*sin(true_anomaly)/(1+eccentricity*cos(true_anomaly)))velocity = sqrt(GM*(2/r - 1/semimajor_axis));
